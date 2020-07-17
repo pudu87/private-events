@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     params.require(:user).permit(:name)
   end
 
+  def event_params
+    params.require(:event).permit(:title, :date, :location)
+  end
+
 end
