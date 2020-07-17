@@ -1,0 +1,5 @@
+<h3><%= @event.title %></h3>
+
+<p>Organizer:<br>
+  <%= link_to "#{@event.creator.name}", user_path(@event.creator_id) %>
+</p>
