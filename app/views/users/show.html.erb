@@ -1,3 +1,13 @@
 <h3>Name<h3>
 
 <p><%= @user.name %></p><br>
+
+<ul>
+  <% @user.events.all.each do |event| %>
+    <li>
+      <%= event.title %><br>
+      location: <%= event.location %><br>
+      date: <%= event.date %>
+    </li>
+  <% end %>
+</ul>
