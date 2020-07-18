@@ -13,9 +13,20 @@
   <% end %>
 </ul>
 
-<p>Attended events:</p>
+<p>Upcomping events:</p>
 <ul>
-  <% @user.attended_events.each do |event| %>
+  <% @upcoming_events.each do |event| %>
+    <li>
+      <%= link_to "#{event.title}", event_path(event) %><br>
+      location: <%= event.location %><br>
+      date: <%= event.date %>
+    </li>
+  <% end %>
+</ul>
+
+<p>Previous events:</p>
+<ul>
+  <% @previous_events.each do |event| %>
     <li>
       <%= link_to "#{event.title}", event_path(event) %><br>
       location: <%= event.location %><br>
