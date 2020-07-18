@@ -2,8 +2,20 @@
 
 <p><%= @user.name %></p><br>
 
+<p>Created events:</p>
 <ul>
-  <% @user.events.all.each do |event| %>
+  <% @user.events.each do |event| %>
+    <li>
+      <%= link_to "#{event.title}", event_path(event) %><br>
+      location: <%= event.location %><br>
+      date: <%= event.date %>
+    </li>
+  <% end %>
+</ul>
+
+<p>Attended events:</p>
+<ul>
+  <% @user.attended_events.each do |event| %>
     <li>
       <%= link_to "#{event.title}", event_path(event) %><br>
       location: <%= event.location %><br>
