@@ -1,7 +1,7 @@
 <h3>Add new event<h3>
 
 <%= form_with model: @event, local: true do |f| %>
-  <%= f.label "Description" %><br>
+  <%= f.label "Title" %><br>
   <%= f.text_field :title %><br>
   <%= f.submit "Submit" %>
 <% end %>
