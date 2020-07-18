@@ -3,3 +3,9 @@
 <p>Organizer:<br>
   <%= link_to "#{@event.creator.name}", user_path(@event.creator_id) %>
 </p>
+
+<p>Invitees:</p>
+<ul><% @event.attendees.each do |attendee| %>
+  <li><%= link_to "#{attendee.name}", user_path(attendee) %></li>
+  <% end %>
+</ul>

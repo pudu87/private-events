@@ -5,7 +5,7 @@
 <ul>
   <% @user.events.all.each do |event| %>
     <li>
-      <%= event.title %><br>
+      <%= link_to "#{event.title}", event_path(event) %><br>
       location: <%= event.location %><br>
       date: <%= event.date %>
     </li>
