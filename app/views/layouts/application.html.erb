@@ -24,6 +24,20 @@
         <%= link_to 'Log In' , login_path  %>
       <% end %>
     </h6>
+    <h5>
+      <% unless current_page?(root_path) %>
+        &emsp;
+        <%= link_to '>> To Events', root_path %>
+      <% end %>
+      <% unless current_page?(users_path) %>
+        &emsp;
+        <%= link_to '>> To Users', users_path %>
+      <% end %>
+      <% if current_user && current_page?(root_path) %>
+        &emsp;
+        <%= link_to '>> New event', new_event_path %>
+      <% end %>
+    </h5>
     <%= yield %>
   </body>
 </html>
