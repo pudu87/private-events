@@ -11,7 +11,7 @@
 
   <body>
     <% flash.each do |type, msg| %>
-      <div>
+      <div class="flash">
         <%= msg %>
       </div>
     <% end %>
@@ -38,6 +38,8 @@
         <%= link_to '>> New event', new_event_path %>
       <% end %>
     </h5>
-    <%= yield %>
+    <div id="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

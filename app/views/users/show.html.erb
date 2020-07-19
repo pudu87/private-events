@@ -1,11 +1,11 @@
-<h3>Name<h3>
+<p>Name:<p>
 
 <p><%= @user.name %></p><br>
 
 <p>Created events:</p>
 <ul>
   <% @user.events.each do |event| %>
-    <li>
+    <li class="event_info">
       <%= link_to "#{event.title}", event_path(event) %><br>
       location: <%= event.location %><br>
       date: <%= event.date %>
@@ -16,7 +16,7 @@
 <p>Upcomping events:</p>
 <ul>
   <% @upcoming_events.each do |event| %>
-    <li>
+    <li class="event_info">
       <%= link_to "#{event.title}", event_path(event) %><br>
       location: <%= event.location %><br>
       date: <%= event.date %>
@@ -27,7 +27,7 @@
 <p>Previous events:</p>
 <ul>
   <% @previous_events.each do |event| %>
-    <li>
+    <li class="event_info>
       <%= link_to "#{event.title}", event_path(event) %><br>
       location: <%= event.location %><br>
       date: <%= event.date %>
