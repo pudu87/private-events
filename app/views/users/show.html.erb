@@ -13,10 +13,10 @@
   <% end %>
 </ul>
 
-<p>Upcomping events:</p>
+<p>Upcoming events:</p>
 <ul>
   <% @upcoming_events.each do |event| %>
-    <li class="event_info">
+    <li class="event_info" id="upcoming">
       <%= link_to "#{event.title}", event_path(event) %><br>
       location: <%= event.location %><br>
       date: <%= event.date %>
@@ -27,10 +27,21 @@
 <p>Previous events:</p>
 <ul>
   <% @previous_events.each do |event| %>
-    <li class="event_info>
+    <li class="event_info" id="previous">
       <%= link_to "#{event.title}", event_path(event) %><br>
       location: <%= event.location %><br>
       date: <%= event.date %>
     </li>
   <% end %>
-</ul>
+</ul><br>
+
+<% if @user == current_user && @invited_attendances.any? %>
+  <p>You are invited for the following events:</p>
+  <ul><% @invited_attendances.each do |attendance| %>
+    <li><%= attendance.attended_event.title %><br>
+      <%= button_to "Accept", attendance_path(attendance.id), method: :put %>
+      <%= button_to "Decline", attendance_path(attendance.id), method: :delete %>
+    </li>
+    <% end %> 
+  </ul>
+<% end %>

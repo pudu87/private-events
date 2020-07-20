@@ -26,6 +26,18 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @confirmed_users = User.find_by_sql ["
+      SELECT * FROM users
+      JOIN attendances 
+      ON users.id = attendee_id AND attended_event_id = ?
+      WHERE attendances.present
+    ", params[:id]]
+    @uninvited_users = User.find_by_sql ["
+      SELECT * FROM users
+      LEFT JOIN attendances 
+      ON users.id = attendee_id AND attended_event_id = ?
+      WHERE attendances.id IS NULL
+      ", params[:id]]
   end
 
 end

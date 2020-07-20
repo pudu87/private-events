@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "Logged in successfully!"
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       flash.now[:alert] = "Name not in database."
       render "new"
